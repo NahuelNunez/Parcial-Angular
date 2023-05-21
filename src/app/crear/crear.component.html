@@ -1,0 +1,23 @@
+
+
+<div>
+    <textarea [(ngModel)]="nuevoPosteo" placeholder="Escribe tu nuevo posteo"></textarea>
+    <br>
+    <button (click)="crearPosteo()">Crear Posteo</button>
+  </div>
+
+  <h2>Lista de Posteos</h2>
+    <ul>
+      <!--  -->
+      <li *ngFor="let post of posts; let i = index">
+        {{ post }}
+        <button (click)="editarPost(i)">Editar</button>
+      </li>
+    </ul>
+    <hr>
+    <h2>Editar Posteo</h2>
+    <div *ngIf="seleccionadoPostIndex!== null">
+      <textarea [(ngModel)]="posts[seleccionadoPostIndex]"></textarea>
+      <br>
+      <button (click)="guardarPost()">Guardar</button>
+    </div>
